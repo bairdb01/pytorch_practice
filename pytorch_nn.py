@@ -1,3 +1,8 @@
+'''
+ Creating a basic neural network with forward/backward propagation
+ to learn a random dataset
+'''
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -84,7 +89,7 @@ print(net.conv1.bias.grad)
 optimizer = optim.SGD(net.parameters(), lr=0.01)
 
 # in training loop
-optimizer.zero_grad() # zero the gradient buffers
+optimizer.zero_grad() # zero the gradient buffers since they are accumulated
 output = net(input)
 loss = criterion(output, target)
 loss.backward()
